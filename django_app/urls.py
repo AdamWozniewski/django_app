@@ -5,6 +5,7 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'article/', include('articles.urls'))
     # Examples:
     # url(r'^$', 'django_app.views.home', name='home'),
     # url(r'^django_app/', include('django_app.foo.urls')),

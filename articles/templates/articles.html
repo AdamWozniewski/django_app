@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block articles %}
+    {% if articles.count > 0 %}
+        {% for article in articles %}
+            <div class="col-md-6 col-lg-4">
+                {{ article.published }}
+                {{ article.title }}
+                {{ article.content }}
+                <a href="/article/{{ article.id }}">Zobacz więcej</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        Brak w bazie
+    {% endif %}
+{% endblock %}
