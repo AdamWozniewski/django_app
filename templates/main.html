@@ -1,0 +1,26 @@
+{% load static %}
+{% load show_custom_html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %} ">
+</head>
+<body>
+    Skróty:
+    {% block featured %}
+    {% endblock %}
+    <br>
+    <hr>
+    Główna tręść:
+    {% block articles %}
+    {% endblock %}
+    <br>
+    pojedynczy:
+    {% block article %}
+    {% endblock %}
+
+    {% render_html 1 %}
+</body>
+</html>

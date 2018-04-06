@@ -1,9 +1,25 @@
+{% extends 'main.html' %}
 
-
-
+{% block article %}
+    <h1>Weszlo</h1>
     <h1>Pojedyńczy Artykuł {{ article.id }}</h1>
     <h3>Tytul: {{ article.title }}</h3>
     <p>{{ article.content }}</p>
     <span>data: {{ article.published }}</span>
-    <a href="/article/show_all">Zobacz wszystkie</a>
+    {% if article.image %}
+        <img src="{{ article.image.url }}" alt="">
+    {% endif %}
+    <a href="/article/show_all/">Zobacz wszystkie</a>
+    <hr>
+    Komentarze:
+    {% for com in article.comment_set.all %}
+        <div>
+            imie: {{ com.user }} <br>
+            zawartosc: {{ com.content }}
+        </div>
+    {% endfor %}
+    <br>
+    <a href="/article/{{ article.id }}/add_comment/">Dodej</a>
+
+{% endblock %}
 

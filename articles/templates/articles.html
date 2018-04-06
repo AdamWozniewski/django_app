@@ -1,14 +1,37 @@
 {% extends 'main.html' %}
 
+<h5>Skróty</h5>
+
+{% block featured %}
+    {% if articles.count > 0 %}
+        {% for art in articles %}
+            <div>
+                {{ art.title }} <br>
+                {{ art.content|truncatewords:11 }} ...<br>
+                <a href="/article/{{ art.id }}/">Więcej</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        Brak najnowszych wpisow
+    {% endif %}
+
+{% endblock %}
+
 {% block articles %}
     {% if articles.count > 0 %}
+        <h5>Pełna lista:</h5>
         {% for article in articles %}
             <div class="col-md-6 col-lg-4">
-                {{ article.published }}
-                {{ article.title }}
-                {{ article.content }}
-                <a href="/article/{{ article.id }}">Zobacz więcej</a>
+                {{ article.published }}<br>
+                {{ article.title }}<br>
+                {{ article.content|truncatewords:50}}<br>
+                {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="">
+                {% endif %}
+                <a href="/article/{{ article.id }}/">Zobacz więcej</a>
             </div>
+            <br>
+            <hr>
         {% endfor %}
     {% else %}
         Brak w bazie
