@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block article %}
+    <h1>Witaj: {{ username }}</h1>
+    <hr>
+    {% if notifications.count > 0 %}
+        <h4>Twoje wiadomości:</h4><br>
+        {% for n in notifications %}
+            <p>
+                <a href="/notifications/show/{{ n.id }}/">{{ n.title }}</a>
+            </p>
+        {% endfor %}
+    {% endif %}
+    <hr>
+    <a href="/logout/">Wyloguj się</a>
+{% endblock %}

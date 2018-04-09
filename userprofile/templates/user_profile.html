@@ -1,0 +1,10 @@
+{% extends 'loggedPanel.html' %}
+
+{% block loggedPanel %}
+    <br>
+    <form action="/accounts/profile/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Zapisz zmiany">
+    </form>
+{% endblock %}

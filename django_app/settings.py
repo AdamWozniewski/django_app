@@ -130,6 +130,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'articles',
     'customhtml',
+    'userprofile',
+    'notifications',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -162,3 +164,5 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'

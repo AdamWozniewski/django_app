@@ -1,0 +1,8 @@
+{% extends 'loggedPanel.html' %}
+
+{% block loggedPanel %}
+    wiadomosci: <br>
+    <h3>{{ notification.title }}</h3>
+    <p>{{ notification.content }}</p>
+    <p><a href="/notifications/delete/{{ notification.id }}">Usuń</a></p>
+{% endblock %}
